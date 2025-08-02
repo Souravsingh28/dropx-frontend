@@ -31,7 +31,7 @@ function RegisterUser() {
       formData.append('username', form.id_number);
       formData.append('role', form.designation);
 
-      const res = await axios.post('http://localhost:5000/api/users/register', formData, {
+      const res = await axios.post('dropx-backend.onrender.com/api/users/register', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',

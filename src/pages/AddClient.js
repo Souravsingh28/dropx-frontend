@@ -14,7 +14,7 @@ function AddClient() {
     const token = localStorage.getItem('token');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/clients/add', form, {
+      const res = await axios.post('dropx-backend.onrender.com/api/clients/add', form, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMessage(res.data.message);

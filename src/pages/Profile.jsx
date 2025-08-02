@@ -8,7 +8,7 @@ function Profile() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/users/me', {
+    axios.get('dropx-backend.onrender.com/api/users/me', {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(res => setUser(res.data))
@@ -28,7 +28,7 @@ function Profile() {
         <div className="max-w-xl bg-white p-6 shadow rounded">
           {user.photo && (
             <img
-              src={`http://localhost:5000/uploads/${user.photo}`}
+              src={`dropx-backend.onrender.com/uploads/${user.photo}`}
               alt="Profile"
               className="w-32 h-32 rounded-full mb-4 object-cover"
             />

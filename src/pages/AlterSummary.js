@@ -8,7 +8,7 @@ function AlterSummary() {
   const [summary, setSummary] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/alter/summary', {
+    axios.get('dropx-backend.onrender.com/api/alter/summary', {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => setSummary(res.data))
       .catch(() => alert('Failed to fetch summary'));

@@ -15,7 +15,7 @@ function LotCreation() {
   useEffect(() => {
     // ✅ Corrected API path here
     axios
-      .get('http://localhost:5000/api/clients', {
+      .get('dropx-backend.onrender.com/api/clients', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -50,7 +50,7 @@ function LotCreation() {
     form.append('operations', JSON.stringify(operations));
 
     try {
-      await axios.post('http://localhost:5000/api/lots/create', form, {
+      await axios.post('dropx-backend.onrender.com/api/lots/create', form, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',

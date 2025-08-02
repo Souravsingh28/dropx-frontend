@@ -15,7 +15,7 @@ function VendorManagement() {
 
   const fetchVendors = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/vendor', {
+      const res = await axios.get('dropx-backend.onrender.com/api/vendor', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setVendors(res.data);
@@ -33,7 +33,7 @@ function VendorManagement() {
     if (!form.name.trim()) return;
 
     try {
-      await axios.post('http://localhost:5000/api/vendor/add', form, {
+      await axios.post('dropx-backend.onrender.com/api/vendor/add', form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setForm({ name: '', contact: '', address: '' });

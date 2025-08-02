@@ -16,11 +16,11 @@ function AlterEntry() {
   });
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/lots/all', {
+    axios.get('dropx-backend.onrender.com/api/lots/all', {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => setLots(res.data));
 
-    axios.get('http://localhost:5000/api/users/workers', {
+    axios.get('dropx-backend.onrender.com/api/users/workers', {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => setWorkers(res.data));
   }, []);
@@ -32,7 +32,7 @@ function AlterEntry() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/alter/entry', form, {
+      await axios.post('dropx-backend.onrender.com/api/alter/entry', form, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('Alter entry saved');

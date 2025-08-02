@@ -18,7 +18,7 @@ function EditLot() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/lots/all`, {
+      .get(`dropx-backend.onrender.com/api/lots/all`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(res => {
@@ -31,7 +31,7 @@ function EditLot() {
       });
 
     axios
-      .get('http://localhost:5000/api/clients', {
+      .get('dropx-backend.onrender.com/api/clients', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(res => setParties(res.data));
@@ -55,7 +55,7 @@ function EditLot() {
     }
 
     try {
-      await axios.put(`http://localhost:5000/api/lots/update/${id}`, form, {
+      await axios.put(`dropx-backend.onrender.com/api/lots/update/${id}`, form, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',

@@ -9,7 +9,7 @@ function MyWork() {
     const token = localStorage.getItem('token');
 
     axios
-      .get('http://localhost:5000/api/production/worker/salary', {
+      .get('dropx-backend.onrender.com/api/production/worker/salary', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(async (res) => {
@@ -22,7 +22,7 @@ function MyWork() {
         await Promise.all(
           uniqueLotIds.map(async (lotId) => {
             try {
-              const lotRes = await axios.get(`http://localhost:5000/api/lots/${lotId}`, {
+              const lotRes = await axios.get(`dropx-backend.onrender.com/api/lots/${lotId}`, {
                 headers: { Authorization: `Bearer ${token}` },
               });
               lotMap[lotId] = {

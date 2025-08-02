@@ -15,7 +15,7 @@ function LotList() {
 
   const fetchLots = () => {
     axios
-      .get('http://localhost:5000/api/lots/all', {
+      .get('dropx-backend.onrender.com/api/lots/all', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -27,7 +27,7 @@ function LotList() {
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this lot?')) {
       axios
-        .delete(`http://localhost:5000/api/lots/${id}`, {
+        .delete(`dropx-backend.onrender.com/api/lots/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then(() => {

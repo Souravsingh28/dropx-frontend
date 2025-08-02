@@ -9,7 +9,7 @@ function UserManagement() {
   const [editing, setEditing] = useState(null);
 
   const fetchUsers = () => {
-    axios.get('http://localhost:5000/api/users', {
+    axios.get('dropx-backend.onrender.com/api/users', {
       headers: { Authorization: `Bearer ${token}` },
     })
     .then(res => setUsers(res.data))
@@ -22,7 +22,7 @@ function UserManagement() {
 
   const handleDelete = (id) => {
     if (!window.confirm('Delete this user?')) return;
-    axios.delete(`http://localhost:5000/api/users/${id}`, {
+    axios.delete(`dropx-backend.onrender.com/api/users/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     }).then(fetchUsers);
   };
@@ -30,7 +30,7 @@ function UserManagement() {
   const handleEdit = (user) => setEditing(user);
 
   const handleSave = () => {
-    axios.put(`http://localhost:5000/api/users/${editing.id}`, editing, {
+    axios.put(`dropx-backend.onrender.com/api/users/${editing.id}`, editing, {
       headers: { Authorization: `Bearer ${token}` },
     }).then(() => {
       setEditing(null);

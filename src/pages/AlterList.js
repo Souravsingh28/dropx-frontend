@@ -8,7 +8,7 @@ function AlterList() {
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/alter/all', {
+    axios.get('dropx-backend.onrender.com/api/alter/all', {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => setEntries(res.data));
   }, []);

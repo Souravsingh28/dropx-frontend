@@ -23,7 +23,7 @@ function WorkReports() {
     const query = new URLSearchParams(filters).toString();
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/production/work-reports?${query}`,
+        `dropx-backend.onrender.com/api/production/work-reports?${query}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setReports(
@@ -44,14 +44,14 @@ function WorkReports() {
     fetchReports();
 
     axios
-      .get('http://localhost:5000/api/lots/all', {
+      .get('dropx-backend.onrender.com/api/lots/all', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setLots(res.data))
       .catch((err) => console.error('❌ Failed to load lots', err));
 
     axios
-      .get('http://localhost:5000/api/users/workers', {
+      .get('dropx-backend.onrender.com/api/users/workers', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setWorkers(res.data))

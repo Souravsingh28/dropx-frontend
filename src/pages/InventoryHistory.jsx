@@ -8,7 +8,7 @@ const InventoryHistory = () => {
   const fetchHistory = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:5000/api/inventory/issues', {
+      const res = await axios.get('dropx-backend.onrender.com/api/inventory/issues', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setHistory(res.data);

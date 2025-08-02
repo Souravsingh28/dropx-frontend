@@ -12,7 +12,7 @@ const InvoiceList = () => {
 
     // Fetch invoices
     axios
-      .get("http://localhost:5000/api/invoice/all", {
+      .get("dropx-backend.onrender.com/api/invoice/all", {
         headers: { Authorization: `Bearer ${savedToken}` },
       })
       .then((res) => {
@@ -24,7 +24,7 @@ const InvoiceList = () => {
   }, []);
 
   const downloadPDF = (id) => {
-    window.open(`http://localhost:5000/api/invoice/download/${id}`, "_blank");
+    window.open(`dropx-backend.onrender.com/api/invoice/download/${id}`, "_blank");
   };
 
   return (

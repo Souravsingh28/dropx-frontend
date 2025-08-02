@@ -21,7 +21,7 @@ function ProductionEntry() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/lots/all', {
+      .get('dropx-backend.onrender.com/api/lots/all', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -32,7 +32,7 @@ function ProductionEntry() {
       });
 
     axios
-      .get('http://localhost:5000/api/users/workers', {
+      .get('dropx-backend.onrender.com/api/users/workers', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -71,7 +71,7 @@ function ProductionEntry() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/production/entry', form, {
+      await axios.post('dropx-backend.onrender.com/api/production/entry', form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert('✅ Production entry submitted!');

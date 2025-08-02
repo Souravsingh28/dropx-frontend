@@ -16,7 +16,7 @@ function ClientManagement() {
 
   const fetchClients = () => {
     axios
-      .get('http://localhost:5000/api/clients', {
+      .get('dropx-backend.onrender.com/api/clients', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setClients(res.data))
@@ -30,13 +30,13 @@ function ClientManagement() {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:5000/api/clients/${editingId}`,
+          `dropx-backend.onrender.com/api/clients/${editingId}`,
           form,
           { headers: { Authorization: `Bearer ${token}` } }
         );
       } else {
         await axios.post(
-          'http://localhost:5000/api/clients',
+          'dropx-backend.onrender.com/api/clients',
           form,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -63,7 +63,7 @@ function ClientManagement() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this client?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/clients/${id}`, {
+      await axios.delete(`dropx-backend.onrender.com/api/clients/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchClients();

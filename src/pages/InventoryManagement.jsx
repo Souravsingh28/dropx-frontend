@@ -25,7 +25,7 @@ function InventoryManagement() {
 
   const fetchItems = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/inventory/stock', {
+      const res = await axios.get('dropx-backend.onrender.com/api/inventory/stock', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setItems(res.data);
@@ -37,7 +37,7 @@ function InventoryManagement() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/inventory/add', newItem, {
+      await axios.post('dropx-backend.onrender.com/api/inventory/add', newItem, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setNewItem({
